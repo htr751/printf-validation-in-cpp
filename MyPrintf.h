@@ -29,9 +29,3 @@ constexpr int CheckPrintf(std::string_view format, T firstArgument, Args&&... ot
 
 	return CheckPrintf(format.substr(index + 2), std::forward<Args>(otherArguments)...);
 }
-
-template<typename... Args>
-int Printf(std::string_view format, Args&&... arguments) {
-	CheckPrintf(format, std::forward<Args>(arguments)...);
-	return std::printf(format.data(), std::forward<Args>(arguments)...);
-}
