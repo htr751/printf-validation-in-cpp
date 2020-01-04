@@ -13,7 +13,7 @@ constexpr int CheckPrintf(const std::string_view format) {
 }
 
 template<typename T, typename... Args>
-constexpr int CheckPrintf(std::string_view format, T firstArgument, Args... otherArguments) {
+constexpr int CheckPrintf(std::string_view format, T firstArgument, Args&&... otherArguments) {
 	auto index = format.find_first_of("%");
 	if (index == std::string_view::npos)
 		throw "too many arguments";
@@ -27,11 +27,11 @@ constexpr int CheckPrintf(std::string_view format, T firstArgument, Args... othe
 			throw "Error: invalid argument type";
 	}
 
-	return CheckPrintf(format.substr(index + 2), otherArguments...);
+	return CheckPrintf(format.substr(index + 2), std::forward<Args>(otherArguments)...);
 }
 
 template<typename... Args>
-int Printf(std::string_view format, Args... arguments) {
-	CheckPrintf(format, arguments...);
-	return std::printf(format.data(), arguments...);
+int Printf(std::string_view format, Args&&... arguments) {
+	CheckPrintf(format, std::forward<Args>(arguments)...);
+	return std::printf(format.data(), std::forward<Args>(arguments)...);
 }
