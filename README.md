@@ -1,11 +1,11 @@
 # printf-validation-in-cpp
 
 ## The idea:
->- An idea(plus simple implementation) for a printf validation function that will be evaluated at compile time in c++.
+>- An idea (plus simple implementation) for a printf validation function that will be evaluated at compile time in c++.
 
 ## My implementation:
 >- My implementation is an implementation of this idea but it support only %s and %d in the printf format. 
->- In addition when parsing %s it expects a string_view argument(so for const char* argument or std::string argument the function will >report an error).
+>- In addition when parsing %s it expects a string_view argument (so for const char* argument or std::string argument the function will >report an error).
 
 ## Evaluation of the function at compile time:
 >- This function will work at compile time in case it will be forced to evaluate at compile time
