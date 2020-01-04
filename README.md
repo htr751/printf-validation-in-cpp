@@ -10,7 +10,7 @@
 ## Evaluation of the function at compile time:
 >- This function will work at compile time in case it will be forced to evaluate at compile time
 >(e.g by assign the result of the function to a constexpr variable and by using literals in the function call,
->for example in the following way: constexpr int result = MyPrintf("%d", 213132)).
+>for example in the following way: **constexpr int result = MyPrintf("%d", 213132) **).
 
 >- This function can work also at runtime but it intended to be used at compile time so the user can be notified by the compiler if
 >he used the function wrong.
