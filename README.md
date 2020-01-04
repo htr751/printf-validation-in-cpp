@@ -16,6 +16,6 @@
 >he used the function wrong.
 
 ## Solution for the problem:
->- One possible solution to this flaw(that the user need to assing the function result to a constexpr variable to force the compiler 
+>- One possible solution to this flaw (that the user need to assing the function result to a constexpr variable to force the compiler 
 >to evaluate the function at compile time) is to use consteval presented in c++20 in the function declaration and by that make the >function
 >work only at compile time.
